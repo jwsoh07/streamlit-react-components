@@ -41,7 +41,9 @@ else:
 # `declare_component` and call it done. The wrapper allows us to customize
 # our component's API: we can pre-process its input args, post-process its
 # output value, and add a docstring for users.
-def st_custom_slider(label: str, min_value: int, max_value: int, key=None):
+def st_custom_slider(
+    label: str, min_value: int, max_value: int, init_value: int, key=None
+):
     # Create a new instance of "st_custom_slider".
 
     # Call through to our private component function. Arguments we pass here
@@ -51,9 +53,14 @@ def st_custom_slider(label: str, min_value: int, max_value: int, key=None):
     # "default" is a special argument that specifies the initial return
     # value of the component before the user has interacted with it.
     component_value = _slider_func(
-        label=label, minValue=min_value, maxValue=max_value, key=key, default=[0]
+        label=label,
+        minValue=min_value,
+        maxValue=max_value,
+        initValue=init_value,
+        key=key,
+        default=[0],
     )
 
     # We could modify the value returned from the component if we wanted.
     # There's no need to do this in our simple example - but it's an option.
-    return component_value
+    return component_value[0]

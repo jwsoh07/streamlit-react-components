@@ -19,9 +19,9 @@ const CustomSlider = (props: ComponentProps) => {
  * This will look for label, minValue and maxValue keys
  * to store them in separate variables.
  */
-  const { label, minValue, maxValue } = props.args;
+  const { label, minValue, maxValue, initValue } = props.args;
 
-  const [value, setValue] = useState([10]);
+  const [value, setValue] = useState([initValue]);
 
   useEffect(() => Streamlit.setFrameHeight());
 

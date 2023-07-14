@@ -9,6 +9,8 @@ label = st.sidebar.text_input("Label of slider", "My Cool Slider")
 min_value, max_value = st.sidebar.slider("Input range for slider", 0, 100, (0, 50))
 
 # Now we can pass any data from Python to React (Frontend)
-slider_component_value = st_custom_slider(label, min_value, max_value, key=1)
+slider_component_value = st_custom_slider(
+    label, min_value, max_value, init_value=50, key=1
+)
 
-st.write(slider_component_value[0])
+st.write(slider_component_value)
